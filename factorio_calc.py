@@ -26,6 +26,9 @@ class ProductionItem:
         return f'ProductionItem({self._name!r}, {self._time}, ' \
             f'{self._ingredients!r}, produced={self._produced})'
 
+    def __str__(self):
+        return self._name
+
     @property
     def base_rate(self):
         if self._produced is None:
