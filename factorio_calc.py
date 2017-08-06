@@ -81,17 +81,18 @@ def save_items():
     os.link(tmp_new, db_fname)
     os.unlink(tmp_new)
 
-def production_rate(dest_item, rate, source_item):
+def production_rate(dest_item, rate, source_item, raw_materials=frozenset()):
     if dest_item is source_item:
         return rate
-    if dest_item._produced is None:
+    if (dest_item._produced is None) or (dest_item in raw_materials):
         return 0
     produced = dest_item._produced / _F(1,1)
     scale = rate / produced
 #    print(f"name, scale == {dest_item._name}, {scale}")
     total = 0
     for sub_item_ct, sub_item in dest_item._ingredients:
-        sub_rate = production_rate(sub_item, scale * sub_item_ct, source_item)
+        sub_rate = production_rate(sub_item, scale * sub_item_ct, source_item,
+                                   raw_materials=raw_materials)
         total += sub_rate
     return total
 
@@ -102,7 +103,7 @@ def how_many_produced(source_item, rate, dest_item):
 FactoryInfo = namedtuple('FactoryInfo', ['factories', 'fractional_factories',
                                          'target_rate', 'item'])
 
-def factories_for_each(dest_item, rate):
+def factories_for_each(dest_item, rate, raw_materials=frozenset()):
     items_so_far = set()
     factory_list = []
     def recursive_count(dest_item, rate, cur_source=None):
@@ -111,8 +112,9 @@ def factories_for_each(dest_item, rate):
         if cur_source in items_so_far:
             return
         items_so_far.add(cur_source)
-        source_rate = production_rate(dest_item, rate, cur_source)
-        if cur_source._produced is None:
+        source_rate = production_rate(dest_item, rate, cur_source,
+                                      raw_materials=raw_materials)
+        if (cur_source._produced is None) or (cur_source in raw_materials):
             factory_list.append(FactoryInfo(None, None, source_rate, cur_source))
         else:
             factories = cur_source.factories(source_rate)
@@ -127,7 +129,7 @@ def factories_for_each(dest_item, rate):
     recursive_count(dest_item, rate)
     return factory_list
 
-def actual_production(dest_item, factory_list):
+def actual_production(dest_item, factory_list, raw_materials=frozenset()):
     def produced_for_each(dest_item, factory_list):
         for int_fact, _, _, item in factory_list:
             if int_fact is not None:
