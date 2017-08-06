@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 import pickle
 import os
 import os.path as _osp
