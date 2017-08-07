@@ -13,7 +13,17 @@ class ProductionItem:
         self._produced = produced
         self._name = name
         self._time = time
-        self._ingredients = ingredients
+        def lookup_ingredients(ingredients):
+            for ct, item in ingredients:
+                print(f"Lookup up ({ct}, {item!s})", file=sys.stderr)
+                if not isinstance(item, ProductionItem):
+                    item = item_db[item]
+                    print(f"Wasn't already an item, found {item!s}",
+                          file=sys.stderr)
+                yield (ct, item)
+        oldlen = len(ingredients)
+        self._ingredients = tuple(item for item in lookup_ingredients(ingredients))
+        assert(len(self._ingredients) == oldlen)
 
     def __hash__(self):
         return hash(self._name)
