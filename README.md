@@ -5,6 +5,9 @@ like rational numbers and the ratios in the game are usually best
 expressed this way, it does all math with fractions from Python's
 fractions module.
 
+If you're seeing this on GitHub, I'm a Mercurial user, so this is a
+mirror of the actual [repository on bitbucket][bitbucket_repo].
+
 It requires Python 3.6 to work, mostly because I really like `f''`
 strings.  I'm also not much of a fancy UI guy, so it just has a bunch of
 functions that do the kinds of things I need.
@@ -50,3 +53,4 @@ more production out of it.  I could use the `actual_production` function
 to figure out just how much.
 
 [Factorio]: https://www.factorio.com/
+[bitbucket_repo]: https://www.bitbucket.org/omnifarious/factorio_calc
