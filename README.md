@@ -16,7 +16,17 @@ The module is designed to be used like this:
 
     >>> from fractions import Fraction as F
     >>> import factorio_calc as fc; from factorio calc import item_db as idb
-    >>> fc.print_factories(fc.factories_for_each(idb['Yellow Science'], F(1,4), raw_materials=(idb['Circuit'], idb['Copper'], idb['Plastic'], idb['Battery'], idb['Speed Module 1'], idb['Sulfur'], idb['Iron'])))
+    >>> fc.print_factories(
+    ...     fc.factories_for_each(
+    ...         idb['Yellow Science'],
+    ...         F(1,4),
+    ...         raw_materials=(idb['Circuit'],
+    ...                        idb['Copper'],
+    ...                        idb['Plastic'],
+    ...                        idb['Battery'],
+    ...                        idb['Speed Module 1'],
+    ...                        idb['Sulfur'],
+    ...                        idb['Iron'])))
     Factories   (as a fraction)   Rate      Name
     ---------   ---------------   -------   ---------------------
             2               7/4       1/4   Yellow Science
