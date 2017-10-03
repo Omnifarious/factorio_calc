@@ -4,6 +4,8 @@ import os.path as _osp
 from fractions import Fraction as _F
 import sys
 from collections import namedtuple
+import re
+
 
 class ProductionItem:
     __slots__ = ('_name', '_time', '_ingredients', '_produced', '__weakref__')
@@ -74,6 +76,42 @@ class ItemSet(set):
                     self._by_name[item._name] = item
                     return item
         raise KeyError(name)
+
+    @staticmethod
+    def _itemId(item):
+        idstr = item._name.lower()
+        idstr = re.sub(r'\s+', '_', idstr)
+        return idstr
+
+    @staticmethod
+    def _itemAsXML(item, item_idmap):
+        if item not in item_idmap:
+            cur_id = ItemSet._itemId(item)
+            item_idmap[item] = (cur_id, False)
+            for _, ingredient in item._ingredients:
+                yield from ItemSet._itemAsXML(ingredient, item_idmap)
+            if item._produced is not None:
+                yield f'  <item id="{cur_id}" name="{item._name}" ' \
+                      f'time="{item._time}" ' \
+                      f'produced="{item._produced}">\n'
+                for count, ingredient in item._ingredients:
+                    ingredient_id = item_idmap[ingredient][0]
+                    yield f'    <ingredient idref="{ingredient_id}" ' \
+                          f'count="{count}" />\n'
+                yield '  </item>\n'
+            else:
+                yield f'  <item id="{cur_id}" name="{item._name}" />\n'
+            item_idmap[item] = (cur_id, True)
+        elif not item_idmap[item][1]:
+            raise RuntimeError(f"Circular reference detected '{item._name}'")
+
+    def asXML(self):
+        yield '<?xml version="1.0" encoding="utf-8" standalone="no" ?>\n'
+        yield '<factorio_calc_item_db>\n'
+        item_idmap = {}
+        for item in self:
+            yield from self._itemAsXML(item, item_idmap)
+        yield '</factorio_calc_item_db>\n'
 
 _mod_dir = _osp.dirname(__file__)
 db_fname = _osp.join(_mod_dir, 'item-db.pickle')
