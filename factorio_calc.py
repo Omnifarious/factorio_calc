@@ -108,11 +108,32 @@ class ItemSet(set):
         elif not item_idmap[item][1]:
             raise RuntimeError(f"Circular reference detected '{item._name}'")
 
+    def sortedItems(self):
+        itemset = set(self)
+        sortedset = set()
+        sortedlist = []
+        curlst = []
+        while len(itemset) > 0:
+            for testitem in itemset:
+                ingredients = set((ingtuple[1] \
+                                   for ingtuple in testitem._ingredients))
+                if len(ingredients - sortedset) <= 0:
+                    curlst.append(testitem)
+            assert(len(curlst) > 0)
+            curset = frozenset(curlst)
+            itemset.difference_update(curset)
+            curlst.sort(key=lambda x: self._itemId(x))
+            sortedlist.extend(curlst)
+            sortedset.update(curset)
+            curset = None
+            curlst = []
+        return sortedlist
+
     def asXML(self):
         yield '<?xml version="1.0" encoding="utf-8" standalone="no" ?>\n'
-        yield '<factorio_calc_item_db>\n'
+        yield '<factorio_calc_item_db version="1.0">\n'
         item_idmap = {}
-        for item in self:
+        for item in self.sortedItems():
             yield from self._itemAsXML(item, item_idmap)
         yield '</factorio_calc_item_db>\n'
 
