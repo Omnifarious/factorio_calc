@@ -45,6 +45,10 @@
   <item id="gear" name="Gear" time="1/2" produced="1">
     <ingredient idref="iron" count="2" />
   </item>
+  <item id="grenade" name="Grenade" time="8" produced="1">
+    <ingredient idref="iron" count="5" />
+    <ingredient idref="coal" count="10" />
+  </item>
   <item id="pipe" name="Pipe" time="1/2" produced="1">
     <ingredient idref="iron" count="1" />
   </item>
@@ -137,6 +141,11 @@
     <ingredient idref="copper" count="5" />
     <ingredient idref="circuit" count="15" />
   </item>
+  <item id="turret" name="Turret" time="8" produced="1">
+    <ingredient idref="gear" count="10" />
+    <ingredient idref="iron" count="10" />
+    <ingredient idref="copper" count="20" />
+  </item>
   <item id="accumulator" name="Accumulator" time="10" produced="1">
     <ingredient idref="battery" count="5" />
     <ingredient idref="iron" count="2" />
@@ -145,6 +154,11 @@
     <ingredient idref="exp_cannon_shell" count="4" />
     <ingredient idref="radar" count="1" />
     <ingredient idref="explosives" count="8" />
+  </item>
+  <item id="black_science" name="Black Science" time="10" produced="2">
+    <ingredient idref="grenade" count="1" />
+    <ingredient idref="piercing_bullets" count="1" />
+    <ingredient idref="turret" count="1" />
   </item>
   <item id="blue_science" name="Blue Science" time="12" produced="1">
     <ingredient idref="adv_circuit" count="1" />
