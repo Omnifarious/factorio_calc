@@ -129,7 +129,7 @@
     <ingredient idref="gear" count="5" />
     <ingredient idref="iron" count="10" />
   </item>
-  <item id="refinery" name="Refinery" time="10" produced="1">
+  <item id="refinery" name="Refinery" time="8" produced="1">
     <ingredient idref="steel" count="15" />
     <ingredient idref="gear" count="10" />
     <ingredient idref="stone_brick" count="10" />
@@ -190,7 +190,7 @@
     <ingredient idref="adv_circuit" count="5" />
     <ingredient idref="stone_brick" count="10" />
   </item>
-  <item id="locomotive" name="Locomotive" time="1/2" produced="1">
+  <item id="locomotive" name="Locomotive" time="4" produced="1">
     <ingredient idref="engine" count="20" />
     <ingredient idref="circuit" count="10" />
     <ingredient idref="steel" count="30" />
