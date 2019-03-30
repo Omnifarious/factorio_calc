@@ -6,20 +6,22 @@
   <item id="light_oil" name="Light Oil" />
   <item id="lube" name="Lube" />
   <item id="pet_gas" name="Pet Gas" />
-  <item id="stone" name="Stone" />
+  <item id="stone_brick" name="Stone brick" />
   <item id="water" name="Water" />
-  <item id="iron" name="Iron" time="16/5" produced="1">
+  <item id="concrete" name="Concrete" time="10" produced="10">
+    <ingredient idref="stone_brick" count="5" />
+    <ingredient idref="iron_ore" count="1" />
+    <ingredient idref="water" count="100" />
+  </item>
+  <item id="iron" name="Iron" time="15/8" produced="1">
     <ingredient idref="iron_ore" count="1" />
   </item>
   <item id="plastic" name="Plastic" time="1" produced="2">
     <ingredient idref="coal" count="1" />
-    <ingredient idref="pet_gas" count="20" />
+    <ingredient idref="pet_gas" count="10" />
   </item>
-  <item id="solid_fuel" name="Solid Fuel" time="2" produced="1">
+  <item id="solid_fuel" name="Solid Fuel" time="3" produced="1">
     <ingredient idref="light_oil" count="10" />
-  </item>
-  <item id="stone_brick" name="Stone brick" time="16/5" produced="1">
-    <ingredient idref="stone" count="2" />
   </item>
   <item id="sulfur" name="Sulfur" time="1" produced="2">
     <ingredient idref="water" count="30" />
@@ -35,12 +37,7 @@
     <ingredient idref="iron" count="1" />
     <ingredient idref="wire" count="3" />
   </item>
-  <item id="concrete" name="Concrete" time="10" produced="10">
-    <ingredient idref="stone_brick" count="5" />
-    <ingredient idref="iron_ore" count="1" />
-    <ingredient idref="water" count="100" />
-  </item>
-  <item id="explosives" name="Explosives" time="4" produced="2">
+  <item id="explosives" name="Explosives" time="5" produced="2">
     <ingredient idref="sulfur" count="1" />
     <ingredient idref="coal" count="1" />
     <ingredient idref="water" count="10" />
@@ -52,25 +49,19 @@
     <ingredient idref="iron" count="5" />
     <ingredient idref="coal" count="10" />
   </item>
-  <item id="iron_stick" name="Iron Stick" time="1/2" produced="2">
-    <ingredient idref="iron" count="1" />
-  </item>
   <item id="pipe" name="Pipe" time="1/2" produced="1">
     <ingredient idref="iron" count="1" />
   </item>
   <item id="rocket_fuel" name="Rocket Fuel" time="30" produced="1">
     <ingredient idref="solid_fuel" count="10" />
   </item>
-  <item id="steel" name="Steel" time="16" produced="1">
+  <item id="steel" name="Steel" time="35/2" produced="1">
     <ingredient idref="iron" count="5" />
   </item>
   <item id="sulfuric_acid" name="Sulfuric Acid" time="1" produced="50">
     <ingredient idref="sulfur" count="5" />
     <ingredient idref="iron" count="1" />
     <ingredient idref="water" count="100" />
-  </item>
-  <item id="wall" name="Wall" time="1/2" produced="1">
-    <ingredient idref="stone_brick" count="5" />
   </item>
   <item id="adv_circuit" name="Adv Circuit" time="6" produced="1">
     <ingredient idref="circuit" count="2" />
@@ -82,15 +73,15 @@
     <ingredient idref="gear" count="5" />
     <ingredient idref="iron" count="9" />
   </item>
-  <item id="battery" name="Battery" time="4" produced="1">
+  <item id="battery" name="Battery" time="5" produced="1">
     <ingredient idref="copper" count="1" />
     <ingredient idref="iron" count="1" />
     <ingredient idref="sulfuric_acid" count="20" />
   </item>
-  <item id="cargo_wagon" name="Cargo Wagon" time="1" produced="1">
+  <item id="cargo_wagon" name="Cargo Wagon" time="1/2" produced="1">
     <ingredient idref="gear" count="10" />
-    <ingredient idref="iron" count="20" />
-    <ingredient idref="steel" count="20" />
+    <ingredient idref="iron" count="10" />
+    <ingredient idref="steel" count="10" />
   </item>
   <item id="chemical_plant" name="Chemical Plant" time="5" produced="1">
     <ingredient idref="steel" count="5" />
@@ -106,26 +97,20 @@
   <item id="engine" name="Engine" time="10" produced="1">
     <ingredient idref="steel" count="1" />
     <ingredient idref="gear" count="1" />
-    <ingredient idref="pipe" count="2" />
+    <ingredient idref="pipe" count="1" />
   </item>
   <item id="exp_cannon_shell" name="Exp Cannon Shell" time="8" produced="1">
     <ingredient idref="explosives" count="2" />
     <ingredient idref="plastic" count="2" />
     <ingredient idref="steel" count="2" />
   </item>
-  <item id="inserter" name="Inserter" time="1/2" produced="1">
-    <ingredient idref="circuit" count="1" />
-    <ingredient idref="gear" count="1" />
-    <ingredient idref="iron" count="1" />
-  </item>
-  <item id="low_density_struct" name="Low Density Struct" time="20" produced="1">
-    <ingredient idref="steel" count="2" />
-    <ingredient idref="copper" count="20" />
+  <item id="low_density_struct" name="Low Density Struct" time="30" produced="1">
+    <ingredient idref="steel" count="10" />
+    <ingredient idref="copper" count="5" />
     <ingredient idref="plastic" count="5" />
   </item>
   <item id="medium_pole" name="Medium Pole" time="1/2" produced="1">
     <ingredient idref="steel" count="2" />
-    <ingredient idref="iron_stick" count="4" />
     <ingredient idref="copper" count="2" />
   </item>
   <item id="piercing_bullets" name="Piercing Bullets" time="3" produced="1">
@@ -134,7 +119,7 @@
     <ingredient idref="copper" count="5" />
   </item>
   <item id="pumpjack" name="Pumpjack" time="5" produced="1">
-    <ingredient idref="steel" count="5" />
+    <ingredient idref="steel" count="4" />
     <ingredient idref="gear" count="10" />
     <ingredient idref="circuit" count="5" />
     <ingredient idref="pipe" count="10" />
@@ -143,21 +128,6 @@
     <ingredient idref="circuit" count="5" />
     <ingredient idref="gear" count="5" />
     <ingredient idref="iron" count="10" />
-  </item>
-  <item id="rail" name="Rail" time="1/2" produced="2">
-    <ingredient idref="steel" count="1" />
-    <ingredient idref="iron_stick" count="1" />
-    <ingredient idref="stone" count="1" />
-  </item>
-  <item id="red_science" name="Red Science" time="5" produced="1">
-    <ingredient idref="copper" count="1" />
-    <ingredient idref="gear" count="1" />
-  </item>
-  <item id="refined_concrete" name="Refined Concrete" time="15" produced="10">
-    <ingredient idref="concrete" count="20" />
-    <ingredient idref="iron_stick" count="8" />
-    <ingredient idref="steel" count="1" />
-    <ingredient idref="water" count="100" />
   </item>
   <item id="refinery" name="Refinery" time="8" produced="1">
     <ingredient idref="steel" count="15" />
@@ -176,10 +146,6 @@
     <ingredient idref="iron" count="10" />
     <ingredient idref="copper" count="20" />
   </item>
-  <item id="yellow_belt" name="Yellow Belt" time="1/2" produced="2">
-    <ingredient idref="gear" count="1" />
-    <ingredient idref="iron" count="1" />
-  </item>
   <item id="accumulator" name="Accumulator" time="10" produced="1">
     <ingredient idref="battery" count="5" />
     <ingredient idref="iron" count="2" />
@@ -192,18 +158,23 @@
   <item id="black_science" name="Black Science" time="10" produced="2">
     <ingredient idref="grenade" count="1" />
     <ingredient idref="piercing_bullets" count="1" />
-    <ingredient idref="wall" count="2" />
+    <ingredient idref="turret" count="1" />
   </item>
-  <item id="blue_science" name="Blue Science" time="24" produced="2">
-    <ingredient idref="adv_circuit" count="3" />
-    <ingredient idref="engine" count="2" />
-    <ingredient idref="solid_fuel" count="1" />
+  <item id="blue_science" name="Blue Science" time="12" produced="1">
+    <ingredient idref="adv_circuit" count="1" />
+    <ingredient idref="engine" count="1" />
+    <ingredient idref="electric_miner" count="1" />
   </item>
   <item id="centrifuge" name="Centrifuge" time="4" produced="1">
     <ingredient idref="concrete" count="100" />
     <ingredient idref="steel" count="50" />
     <ingredient idref="adv_circuit" count="100" />
     <ingredient idref="gear" count="100" />
+  </item>
+  <item id="defender" name="Defender" time="8" produced="1">
+    <ingredient idref="piercing_bullets" count="1" />
+    <ingredient idref="circuit" count="2" />
+    <ingredient idref="gear" count="3" />
   </item>
   <item id="efficiency_module_1" name="Efficiency Module 1" time="15" produced="1">
     <ingredient idref="circuit" count="5" />
@@ -218,10 +189,6 @@
     <ingredient idref="steel" count="10" />
     <ingredient idref="adv_circuit" count="5" />
     <ingredient idref="stone_brick" count="10" />
-  </item>
-  <item id="green_science" name="Green Science" time="6" produced="1">
-    <ingredient idref="inserter" count="1" />
-    <ingredient idref="yellow_belt" count="1" />
   </item>
   <item id="locomotive" name="Locomotive" time="4" produced="1">
     <ingredient idref="engine" count="20" />
@@ -251,10 +218,13 @@
     <ingredient idref="adv_circuit" count="5" />
     <ingredient idref="copper" count="5" />
   </item>
-  <item id="purple_science" name="Purple Science" time="21" produced="3">
+  <item id="distractor" name="Distractor" time="15" produced="1">
+    <ingredient idref="defender" count="4" />
+    <ingredient idref="adv_circuit" count="3" />
+  </item>
+  <item id="purple_science" name="Purple Science" time="14" produced="2">
+    <ingredient idref="electric_engine" count="1" />
     <ingredient idref="electric_furnace" count="1" />
-    <ingredient idref="productivity_module_1" count="1" />
-    <ingredient idref="rail" count="30" />
   </item>
   <item id="robot_frame" name="Robot Frame" time="20" produced="1">
     <ingredient idref="electric_engine" count="1" />
@@ -271,27 +241,19 @@
     <ingredient idref="adv_circuit" count="5" />
     <ingredient idref="processing_unit" count="5" />
   </item>
-  <item id="defender" name="Defender" time="8" produced="1">
-    <ingredient idref="piercing_bullets" count="1" />
-    <ingredient idref="robot_frame" count="1" />
-    <ingredient idref="gear" count="3" />
+  <item id="yellow_science" name="Yellow Science" time="14" produced="2">
+    <ingredient idref="battery" count="1" />
+    <ingredient idref="processing_unit" count="3" />
+    <ingredient idref="speed_module_1" count="1" />
+    <ingredient idref="wire" count="30" />
+  </item>
+  <item id="destroyer" name="Destroyer" time="15" produced="1">
+    <ingredient idref="distractor" count="4" />
+    <ingredient idref="speed_module_1" count="1" />
   </item>
   <item id="speed_module_3" name="Speed Module 3" time="60" produced="1">
     <ingredient idref="speed_module_2" count="5" />
     <ingredient idref="adv_circuit" count="5" />
     <ingredient idref="processing_unit" count="5" />
-  </item>
-  <item id="yellow_science" name="Yellow Science" time="21" produced="3">
-    <ingredient idref="robot_frame" count="1" />
-    <ingredient idref="processing_unit" count="2" />
-    <ingredient idref="low_density_struct" count="3" />
-  </item>
-  <item id="distractor" name="Distractor" time="15" produced="1">
-    <ingredient idref="defender" count="4" />
-    <ingredient idref="adv_circuit" count="3" />
-  </item>
-  <item id="destroyer" name="Destroyer" time="15" produced="1">
-    <ingredient idref="distractor" count="4" />
-    <ingredient idref="speed_module_1" count="1" />
   </item>
 </factorio_calc_item_db>
