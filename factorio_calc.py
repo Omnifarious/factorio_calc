@@ -199,18 +199,28 @@ class ItemSet(set):
                 ProductionItem(name, time, tuple(ingredients), produced))
 
 _mod_dir = _osp.dirname(__file__)
-db_fname = _osp.join(_mod_dir, 'item-db.pickle')
+xml_fname = _osp.join(_mod_dir, 'items.xml')
+pickle_fname = _osp.join(_mod_dir, 'item-db-0.16.pickle')
 
-if _osp.exists(db_fname):
-    with open(db_fname, 'rb') as _item_f:
+if _osp.exists(xml_fname):
+    with open(xml_fname, 'r') as _item_f:
+        item_db = ItemSet.createFromXML(_item_f)
+        db_fname = xml_fname
+elif _osp.exists(pickle_fname):
+    with open(pickle_fname, 'rb') as _item_f:
         item_db = pickle.load(_item_f)
+        db_fname = pickle_fname
 else:
-    item_db = set()
+    item_db = ItemSet()
 
 def save_items():
     tmp_new = db_fname + '.new'
-    with open(tmp_new, 'wb') as item_f:
-        pickle.dump(item_db, item_f, -1)
+    if db_fname.endswith('.xml'):
+        with open(tmp_new, 'w') as item_f:
+            item_f.writelines(item_db.asXML())
+    else:
+        with open(tmp_new, 'wb') as item_f:
+            pickle.dump(item_db, item_f, -1)
     os.unlink(db_fname)
     os.link(tmp_new, db_fname)
     os.unlink(tmp_new)
