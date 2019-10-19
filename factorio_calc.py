@@ -286,7 +286,6 @@ def print_factories(factory_list, file=None):
     if file is None:
         file = sys.stdout
     raw = []
-    cooked = []
     print("Factories   (as a fraction)   Rate      Name", file=file)
     print("---------   ---------------   -------   ---------------------",
           file=file)
